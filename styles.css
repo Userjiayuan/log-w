@@ -1,0 +1,163 @@
+:root {
+  color-scheme: light;
+  --ink: #1b1a19;
+  --muted: #6f5f53;
+  --paper: #f6f1ea;
+  --sand: #efe4d8;
+  --accent: #b23a2f;
+  --accent-2: #2f7c6e;
+  --shadow: 0 24px 70px rgba(30, 20, 10, 0.18);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Fraunces", "Playfair Display", "Georgia", serif;
+  color: var(--ink);
+  background: radial-gradient(circle at top left, #fff7ef, #f2e6da 40%, #e9d9c8);
+}
+
+.page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 64px 24px;
+}
+
+.login-card {
+  width: min(420px, 100%);
+  background: var(--paper);
+  border-radius: 24px;
+  padding: 36px 32px 28px;
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.login-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(140deg, rgba(178, 58, 47, 0.12), rgba(47, 124, 110, 0.08));
+  pointer-events: none;
+}
+
+.card-header,
+.login-form,
+.card-footer {
+  position: relative;
+  z-index: 1;
+}
+
+.brand {
+  font-size: 14px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  margin: 0 0 12px;
+  color: var(--accent-2);
+  font-weight: 600;
+}
+
+h1 {
+  margin: 0 0 8px;
+  font-size: 28px;
+}
+
+.subtitle {
+  margin: 0 0 24px;
+  color: var(--muted);
+}
+
+.login-form {
+  display: grid;
+  gap: 16px;
+}
+
+.field {
+  display: grid;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.field input {
+  border: 1px solid rgba(27, 26, 25, 0.18);
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-family: "Source Serif 4", "Georgia", serif;
+  font-size: 15px;
+  background: #fffaf6;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.field input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(178, 58, 47, 0.15);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 14px;
+  gap: 12px;
+}
+
+.checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.checkbox input {
+  accent-color: var(--accent-2);
+}
+
+.link {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.primary {
+  border: none;
+  border-radius: 14px;
+  padding: 12px 16px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(120deg, #b23a2f, #df6c3c);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 12px 24px rgba(178, 58, 47, 0.25);
+}
+
+.primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 30px rgba(178, 58, 47, 0.3);
+}
+
+.card-footer {
+  margin-top: 20px;
+  color: var(--muted);
+  font-size: 14px;
+  text-align: center;
+}
+
+@media (max-width: 480px) {
+  .login-card {
+    padding: 28px 22px 24px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+}
