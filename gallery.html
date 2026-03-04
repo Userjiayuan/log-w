@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>风景图库 · 欢迎</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <section class="gallery-card">
+        <p class="brand">CLOUD RIM</p>
+        <h1>欢迎回来</h1>
+        <p>你已成功登录，可以继续浏览风景图库与精选合集。</p>
+        <form method="post" action="/api/logout">
+          <button class="secondary" type="submit">退出登录</button>
+        </form>
+      </section>
+      <aside class="scenic-panel" aria-label="风景精选">
+        <div class="scenic-copy">
+          <p class="eyebrow">今日推荐</p>
+          <h2>峡谷与潮汐的清晨</h2>
+          <p>探索热门合集：高山、海岸、城市天际线与雨后森林。</p>
+        </div>
+        <div class="scenic-grid" role="presentation">
+          <div class="tile tile-a"></div>
+          <div class="tile tile-b"></div>
+          <div class="tile tile-c"></div>
+          <div class="tile tile-d"></div>
+        </div>
+      </aside>
+    </main>
+  </body>
+</html>
