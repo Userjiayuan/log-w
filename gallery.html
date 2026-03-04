@@ -12,6 +12,7 @@
         <p class="brand">CLOUD RIM</p>
         <h1>欢迎回来</h1>
         <p>你已成功登录，可以继续浏览风景图库与精选合集。</p>
+        <p class="user-info" id="user-info">正在加载账号信息...</p>
         <form method="post" action="http://13.212.50.137:3000/api/logout">
           <button class="secondary" type="submit">退出登录</button>
         </form>
@@ -30,5 +31,21 @@
         </div>
       </aside>
     </main>
+    <script>
+      const userInfo = document.getElementById("user-info");
+
+      fetch("http://13.212.50.137:3000/api/me", { credentials: "include" })
+        .then((response) => response.json())
+        .then((data) => {
+          if (!data.ok || !data.user) {
+            userInfo.textContent = "未登录";
+            return;
+          }
+          userInfo.textContent = `已登录：${data.user.displayName} (${data.user.email})`;
+        })
+        .catch(() => {
+          userInfo.textContent = "无法获取账号信息";
+        });
+    </script>
   </body>
 </html>
