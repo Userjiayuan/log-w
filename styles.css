@@ -1,12 +1,13 @@
 :root {
   color-scheme: light;
-  --ink: #1b1a19;
-  --muted: #6f5f53;
-  --paper: #f6f1ea;
-  --sand: #efe4d8;
-  --accent: #b23a2f;
-  --accent-2: #2f7c6e;
-  --shadow: 0 24px 70px rgba(30, 20, 10, 0.18);
+  --ink: #1d231f;
+  --muted: #52645e;
+  --paper: #f8f3ec;
+  --sand: #e8dfd3;
+  --accent: #2c6f6a;
+  --accent-2: #c7762b;
+  --shadow: 0 28px 80px rgba(20, 30, 24, 0.2);
+  --mist: rgba(255, 255, 255, 0.7);
 }
 
 * {
@@ -18,21 +19,23 @@ body {
   min-height: 100vh;
   font-family: "Fraunces", "Playfair Display", "Georgia", serif;
   color: var(--ink);
-  background: radial-gradient(circle at top left, #fff7ef, #f2e6da 40%, #e9d9c8);
+  background: radial-gradient(circle at top left, #f9f4ec, #e8efe8 45%, #d9e2d9);
 }
 
 .page {
   min-height: 100vh;
   display: grid;
-  place-items: center;
-  padding: 64px 24px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  align-items: center;
+  gap: 48px;
+  padding: 72px clamp(24px, 7vw, 84px);
 }
 
 .login-card {
   width: min(420px, 100%);
   background: var(--paper);
-  border-radius: 24px;
-  padding: 36px 32px 28px;
+  border-radius: 28px;
+  padding: 38px 34px 30px;
   box-shadow: var(--shadow);
   position: relative;
   overflow: hidden;
@@ -42,7 +45,7 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(140deg, rgba(178, 58, 47, 0.12), rgba(47, 124, 110, 0.08));
+  background: linear-gradient(140deg, rgba(44, 111, 106, 0.14), rgba(199, 118, 43, 0.08));
   pointer-events: none;
 }
 
@@ -54,21 +57,21 @@ body {
 }
 
 .brand {
-  font-size: 14px;
-  letter-spacing: 0.24em;
+  font-size: 13px;
+  letter-spacing: 0.3em;
   text-transform: uppercase;
   margin: 0 0 12px;
-  color: var(--accent-2);
+  color: var(--accent);
   font-weight: 600;
 }
 
 h1 {
-  margin: 0 0 8px;
-  font-size: 28px;
+  margin: 0 0 10px;
+  font-size: 30px;
 }
 
 .subtitle {
-  margin: 0 0 24px;
+  margin: 0 0 26px;
   color: var(--muted);
 }
 
@@ -84,19 +87,19 @@ h1 {
 }
 
 .field input {
-  border: 1px solid rgba(27, 26, 25, 0.18);
+  border: 1px solid rgba(29, 35, 31, 0.18);
   border-radius: 12px;
   padding: 12px 14px;
   font-family: "Source Serif 4", "Georgia", serif;
   font-size: 15px;
-  background: #fffaf6;
+  background: #fffdf9;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .field input:focus {
   outline: none;
   border-color: var(--accent);
-  box-shadow: 0 0 0 4px rgba(178, 58, 47, 0.15);
+  box-shadow: 0 0 0 4px rgba(44, 111, 106, 0.18);
 }
 
 .row {
@@ -114,11 +117,11 @@ h1 {
 }
 
 .checkbox input {
-  accent-color: var(--accent-2);
+  accent-color: var(--accent);
 }
 
 .link {
-  color: var(--accent);
+  color: var(--accent-2);
   text-decoration: none;
   font-weight: 600;
 }
@@ -134,15 +137,15 @@ h1 {
   font-size: 16px;
   font-weight: 600;
   color: #fff;
-  background: linear-gradient(120deg, #b23a2f, #df6c3c);
+  background: linear-gradient(120deg, #2c6f6a, #439286);
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  box-shadow: 0 12px 24px rgba(178, 58, 47, 0.25);
+  box-shadow: 0 14px 30px rgba(44, 111, 106, 0.3);
 }
 
 .primary:hover {
   transform: translateY(-1px);
-  box-shadow: 0 16px 30px rgba(178, 58, 47, 0.3);
+  box-shadow: 0 18px 34px rgba(44, 111, 106, 0.35);
 }
 
 .card-footer {
@@ -152,12 +155,155 @@ h1 {
   text-align: center;
 }
 
+.scenic-panel {
+  position: relative;
+  padding: 36px;
+  border-radius: 32px;
+  background: linear-gradient(150deg, rgba(255, 255, 255, 0.6), rgba(234, 242, 239, 0.85));
+  box-shadow: var(--shadow);
+  display: grid;
+  gap: 28px;
+  overflow: hidden;
+}
+
+.scenic-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top right, rgba(44, 111, 106, 0.2), transparent 55%);
+  pointer-events: none;
+}
+
+.scenic-copy {
+  position: relative;
+  z-index: 1;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: 12px;
+  color: var(--accent);
+  margin: 0 0 10px;
+  font-weight: 600;
+}
+
+h2 {
+  margin: 0 0 12px;
+  font-size: 26px;
+}
+
+.scenic-copy p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.scenic-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-auto-rows: 88px;
+}
+
+.tile {
+  border-radius: 20px;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 16px 28px rgba(29, 35, 31, 0.2);
+}
+
+.tile-a {
+  grid-column: span 3;
+  grid-row: span 2;
+  background-image: linear-gradient(120deg, rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.2)),
+    url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80");
+}
+
+.tile-b {
+  grid-column: span 3;
+  grid-row: span 1;
+  background-image: linear-gradient(120deg, rgba(0, 0, 0, 0.08), rgba(255, 255, 255, 0.25)),
+    url("https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=900&q=80");
+}
+
+.tile-c {
+  grid-column: span 2;
+  grid-row: span 1;
+  background-image: linear-gradient(120deg, rgba(0, 0, 0, 0.05), rgba(255, 255, 255, 0.25)),
+    url("https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=900&q=80");
+}
+
+.tile-d {
+  grid-column: span 4;
+  grid-row: span 1;
+  background-image: linear-gradient(120deg, rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.2)),
+    url("https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=900&q=80");
+}
+
+@keyframes floatIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.login-card,
+.scenic-panel {
+  animation: floatIn 0.7s ease both;
+}
+
+.scenic-grid .tile {
+  animation: floatIn 0.7s ease both;
+}
+
+.tile-a {
+  animation-delay: 0.1s;
+}
+
+.tile-b {
+  animation-delay: 0.2s;
+}
+
+.tile-c {
+  animation-delay: 0.3s;
+}
+
+.tile-d {
+  animation-delay: 0.4s;
+}
+
+@media (max-width: 900px) {
+  .page {
+    grid-template-columns: 1fr;
+  }
+
+  .scenic-panel {
+    order: -1;
+  }
+}
+
 @media (max-width: 480px) {
-  .login-card {
+  .login-card,
+  .scenic-panel {
     padding: 28px 22px 24px;
   }
 
   h1 {
     font-size: 24px;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
+
+  .scenic-grid {
+    grid-auto-rows: 70px;
   }
 }

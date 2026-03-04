@@ -3,16 +3,16 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>简单登录</title>
+    <title>山野风景图库 · 登录</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <main class="page">
       <section class="login-card" aria-labelledby="login-title">
         <header class="card-header">
-          <p class="brand">LOG-W</p>
-          <h1 id="login-title">加园的第一个AI项目</h1>
-          <p class="subtitle">请使用账号登录继续。</p>
+          <p class="brand">CLOUD RIM</p>
+          <h1 id="login-title">登录进入风景图片馆</h1>
+          <p class="subtitle">收藏山野、海岸与森林光影。</p>
         </header>
 
         <form class="login-form">
@@ -34,13 +34,27 @@
             <a class="link" href="#">忘记密码？</a>
           </div>
 
-          <button class="primary" type="submit">登录</button>
+          <button class="primary" type="submit">进入图库</button>
         </form>
 
         <footer class="card-footer">
           <p>还没有账号？<a class="link" href="#">创建一个</a></p>
         </footer>
       </section>
+
+      <aside class="scenic-panel" aria-label="风景精选">
+        <div class="scenic-copy">
+          <p class="eyebrow">本周精选</p>
+          <h2>沿着晨雾去旅行</h2>
+          <p>浏览 4K 风景与航拍图库，按地点与光线筛选最适合的壁纸与灵感。</p>
+        </div>
+        <div class="scenic-grid" role="presentation">
+          <div class="tile tile-a"></div>
+          <div class="tile tile-b"></div>
+          <div class="tile tile-c"></div>
+          <div class="tile tile-d"></div>
+        </div>
+      </aside>
     </main>
   </body>
 </html>
