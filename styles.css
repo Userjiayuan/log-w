@@ -80,6 +80,12 @@ h1 {
   gap: 16px;
 }
 
+.register-form {
+  display: grid;
+  gap: 14px;
+  margin-top: 10px;
+}
+
 .field {
   display: grid;
   gap: 8px;
@@ -153,6 +159,8 @@ h1 {
   color: var(--muted);
   font-size: 14px;
   text-align: center;
+  display: grid;
+  gap: 12px;
 }
 
 .gallery-card {

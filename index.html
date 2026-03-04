@@ -38,7 +38,26 @@
         </form>
 
         <footer class="card-footer">
-          <p>还没有账号？<a class="link" href="#">创建一个</a></p>
+          <p>还没有账号？</p>
+          <form
+            class="register-form"
+            method="post"
+            action="http://13.212.50.137:3000/api/register"
+          >
+            <label class="field">
+              <span>昵称</span>
+              <input type="text" name="displayName" placeholder="旅人" required />
+            </label>
+            <label class="field">
+              <span>注册邮箱</span>
+              <input type="email" name="email" placeholder="name@example.com" required />
+            </label>
+            <label class="field">
+              <span>设置密码</span>
+              <input type="password" name="password" placeholder="至少 8 位" required />
+            </label>
+            <button class="secondary" type="submit">创建账号</button>
+          </form>
         </footer>
       </section>
 

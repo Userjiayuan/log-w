@@ -115,6 +115,43 @@ app.post("/api/login", async (req, res) => {
   return res.json({ ok: true, message: "登录成功" });
 });
 
+app.post("/api/register", async (req, res) => {
+  const email = String(req.body.email || "").trim().toLowerCase();
+  const password = String(req.body.password || "");
+  const displayName = String(req.body.displayName || "").trim();
+
+  if (!email || !password || !displayName) {
+    return res
+      .status(400)
+      .json({ ok: false, message: "请填写邮箱、密码和昵称" });
+  }
+
+  if (password.length < 8) {
+    return res.status(400).json({ ok: false, message: "密码至少 8 位" });
+  }
+
+  if (displayName.length > 120) {
+    return res.status(400).json({ ok: false, message: "昵称过长" });
+  }
+
+  const [existing] = await pool.query(
+    "SELECT id FROM users WHERE email = ?",
+    [email]
+  );
+  if (existing.length) {
+    return res.status(409).json({ ok: false, message: "邮箱已注册" });
+  }
+
+  const passwordHash = await bcrypt.hash(password, 10);
+  const [result] = await pool.query(
+    "INSERT INTO users (email, password_hash, display_name) VALUES (?, ?, ?)",
+    [email, passwordHash, displayName]
+  );
+
+  req.session.userId = result.insertId;
+  return res.json({ ok: true, message: "注册成功" });
+});
+
 app.post("/api/logout", (req, res) => {
   req.session.destroy((err) => {
     if (err) {
