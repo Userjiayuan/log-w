@@ -18,6 +18,8 @@ copy .env.example .env
 
 2. 按需填写 `.env`
 
+Redis 单用户密码示例：`REDIS_URL=redis://:你的密码@127.0.0.1:6379`
+
 ## 初始化数据库
 
 ```
