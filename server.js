@@ -1,7 +1,7 @@
 const path = require("path");
 const express = require("express");
 const session = require("express-session");
-const RedisStore = require("connect-redis").default;
+const { RedisStore } = require("connect-redis");
 const { createClient } = require("redis");
 const bcrypt = require("bcryptjs");
 const mysql = require("mysql2/promise");
